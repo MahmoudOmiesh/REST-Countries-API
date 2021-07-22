@@ -1,0 +1,352 @@
+@charset "UTF-8";
+:root {
+  --fw-normal: 300;
+  --fw-medium: 600;
+  --fw-bold: 800;
+  --ff-main: "Nunito Sans", sans-serif;
+  --box-shadow: 0 0 1em 0 #0003;
+}
+
+:root[data-theme=dark] {
+  --clr-primary-100: #2b3945;
+  --clr-primary-200: #202c37;
+  --clr-neutral-100: white;
+}
+
+:root[data-theme=light] {
+  --clr-primary-100: white;
+  --clr-primary-200: #fafafa;
+  --clr-neutral-100: #111517;
+  --clr-neutral-200: #858585;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+body {
+  --container-padding: 7em;
+  font-family: var(--ff-main);
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-primary-200);
+  text-rendering: optimizeSpeed;
+  line-height: 1.6;
+}
+@media (max-width: 60em) {
+  body {
+    --container-padding: 3em;
+  }
+}
+@media (max-width: 45em) {
+  body {
+    --container-padding: 1.75em;
+  }
+}
+
+.light {
+  stroke: #000;
+  fill: none;
+}
+
+.header {
+  background-color: var(--clr-primary-100);
+  padding: 1.5em var(--container-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--box-shadow);
+}
+.header__logo {
+  font-size: 1.65rem;
+}
+@media (max-width: 60em) {
+  .header__logo {
+    font-size: 1rem;
+  }
+}
+.header__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  background: none;
+  border: 0;
+  color: var(--clr-neutral-100);
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+}
+@media (max-width: 60em) {
+  .header__toggle {
+    font-size: 0.85rem;
+  }
+}
+.header__toggle:hover {
+  text-decoration: underline;
+}
+
+.filter {
+  padding: 2em var(--container-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+@media (max-width: 45em) {
+  .filter {
+    row-gap: 2em;
+  }
+}
+.filter__search {
+  background-color: var(--clr-primary-100);
+  padding: 0.5em 1em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  flex-basis: 30rem;
+  border-radius: 0.35em;
+  box-shadow: var(--box-shadow);
+}
+@media (max-width: 45em) {
+  .filter__search {
+    flex-basis: 100%;
+  }
+}
+.filter__icon {
+  cursor: pointer;
+}
+.filter__field {
+  width: 100%;
+  background: none;
+  border: 0;
+  color: var(--clr-neutral-100);
+}
+.filter__field::placeholder {
+  color: var(--clr-neutral-100);
+}
+.filter__field:focus {
+  outline: 0;
+}
+.filter__select {
+  appearance: none;
+  background: none;
+  border: 0;
+  outline: 0;
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-primary-100);
+  border-radius: 0.35em;
+  padding: 0.5em 0.75em;
+  width: 100%;
+  box-shadow: none;
+  font-size: 0.85rem;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+}
+.filter__select-custom {
+  background-color: var(--clr-primary-100);
+  border-radius: 0.35em;
+  flex-basis: 10rem;
+  position: relative;
+  z-index: 1000;
+}
+.filter__select-custom::after {
+  content: "˅";
+  position: absolute;
+  right: 0.75em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.countries {
+  display: grid;
+  padding: 0 var(--container-padding);
+  grid-template-columns: repeat(auto-fit, minmax(275px, 0.25fr));
+  gap: 2em;
+  padding-bottom: 2em;
+  justify-content: center;
+}
+
+.country {
+  background-color: var(--clr-primary-100);
+  border-radius: 0.35em;
+  box-shadow: var(--box-shadow);
+}
+.country__flag {
+  width: 100%;
+  height: 55%;
+  object-fit: cover;
+  cursor: pointer;
+}
+.country__facts {
+  padding: 2em 1.5em;
+}
+.country__name {
+  margin-bottom: 0.6em;
+  cursor: pointer;
+}
+.country__fact {
+  font-size: 0.9rem;
+}
+.country__fact span {
+  font-weight: var(--fw-medium);
+}
+.country__fact + .country__fact {
+  margin-top: 0.5em;
+}
+
+.modal {
+  padding: 2em var(--container-padding);
+  display: none;
+}
+.modal__button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35em 1em;
+  background-color: var(--clr-primary-100);
+  color: var(--clr-neutral-100);
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  border-radius: 0.35em;
+  gap: 0.5em;
+  margin-bottom: 4em;
+  box-shadow: var(--box-shadow);
+}
+.modal__body {
+  display: flex;
+  align-items: center;
+  gap: 10em;
+}
+@media (max-width: 60em) {
+  .modal__body {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2em;
+  }
+}
+.modal__content {
+  width: 100%;
+}
+.modal__flag {
+  width: 40%;
+  object-fit: cover;
+  box-shadow: var(--box-shadow);
+}
+@media (max-width: 60em) {
+  .modal__flag {
+    width: 100%;
+  }
+}
+.modal__title {
+  margin-bottom: 0.75em;
+}
+.modal__facts {
+  display: flex;
+  gap: 5em;
+  margin-bottom: 3em;
+}
+@media (max-width: 45em) {
+  .modal__facts {
+    flex-direction: column;
+    gap: 2em;
+  }
+}
+.modal__facts li {
+  padding: 0.2em 0;
+}
+.modal__fact {
+  text-transform: capitalize;
+  font-size: 0.9rem;
+}
+.modal__fact span {
+  font-weight: var(--fw-medium);
+}
+.modal__borderCountries {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+@media (max-width: 60em) {
+  .modal__borderCountries {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.modal__borderCountries ul {
+  display: flex;
+  gap: 0.75em;
+  flex-wrap: wrap;
+}
+.modal__border {
+  font-weight: var(--fw-medium);
+}
+.modal__borderCountry {
+  background-color: var(--clr-primary-100);
+  text-transform: capitalize;
+  padding: 0.35em 1.5em;
+  border-radius: 0.35em;
+  box-shadow: var(--box-shadow);
+}

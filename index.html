@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="css/style.css" />
+		<script src="js/main.js" defer type="module"></script>
+		<title>Rest Countries API</title>
+	</head>
+	<body>
+		<header class="header">
+			<h1 class="header__logo">Where in the world?</h1>
+			<button class="header__toggle">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="icon icon-tabler icon-tabler-moon themeSvg"
+					width="20"
+					height="20"
+					viewBox="0 0 24 24"
+					stroke-width="1.5"
+					stroke="white"
+					fill="white"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+					<path
+						d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"
+					/>
+				</svg>
+				Dark Mode
+			</button>
+			<!-- SVG from https://tablericons.com/ -->
+		</header>
+		<main class="main">
+			<form class="filter">
+				<div class="filter__search">
+					<svg
+						class="filter__icon"
+						xmlns="http://www.w3.org/2000/svg"
+						class="icon icon-tabler icon-tabler-search"
+						width="25"
+						height="25"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="#fff"
+						fill="none"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+						<circle cx="10" cy="10" r="7" />
+						<line x1="21" y1="21" x2="15" y2="15" />
+					</svg>
+					<input
+						type="text"
+						placeholder="Search for a country..."
+						class="filter__field"
+					/>
+				</div>
+				<div class="filter__select-custom">
+					<select class="filter__select">
+						<option selected disabled>Filter by Region</option>
+						<option value="Africa" class="filter__option">Africa</option>
+						<option value="America" class="filter__option">Americas</option>
+						<option value="Asia" class="filter__option">Asia</option>
+						<option value="Europe" class="filter__option">Europe</option>
+						<option value="Oceania" class="filter__option">Oceania</option>
+					</select>
+				</div>
+			</form>
+			<section class="countries"></section>
+		</main>
+		<div class="modal">
+			<button class="modal__button">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="icon icon-tabler icon-tabler-arrow-narrow-left modal__arrow"
+					width="30"
+					height="30"
+					viewBox="0 0 24 24"
+					stroke-width="1.5"
+					stroke="#ffffff"
+					fill="none"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+					<line x1="5" y1="12" x2="19" y2="12" />
+					<line x1="5" y1="12" x2="9" y2="16" />
+					<line x1="5" y1="12" x2="9" y2="8" />
+				</svg>
+				Back
+			</button>
+			<div class="modal__body">
+				<img src="" alt="" class="modal__flag" />
+				<div class="modal__content">
+					<h1 class="modal__title"></h1>
+					<div class="modal__facts">
+						<ul role="list">
+							<li>
+								<p class="modal__fact nat"><span>native name: </span></p>
+							</li>
+							<li>
+								<p class="modal__fact pop"><span>Population: </span></p>
+							</li>
+							<li>
+								<p class="modal__fact reg"><span>Region: </span></p>
+							</li>
+							<li>
+								<p class="modal__fact subr">
+									<span>sub region: </span>
+								</p>
+							</li>
+							<li>
+								<p class="modal__fact cap"><span>capital: </span></p>
+							</li>
+						</ul>
+						<ul role="list">
+							<li>
+								<p class="modal__fact dom"><span>top level domain: </span></p>
+							</li>
+							<li>
+								<p class="modal__fact cur"><span>currencies: </span></p>
+							</li>
+							<li>
+								<p class="modal__fact lan"><span>languages: </span></p>
+							</li>
+						</ul>
+					</div>
+					<div class="modal__borderCountries">
+						<p class="modal__border">Border Countries:</p>
+						<ul role="list" data-bordercountries></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
+<!-- <div class="country">
+		<img src="" alt="" class="country__flag" />
+		<div class="country__facts">
+			<h3 class="country__name">Germany</h3>
+			<p class="country__fact"><span>Population:</span></p>
+			<p class="country__fact"><span>Region:</span></p>
+			<p class="country__fact"><span>Capital</span></p>
+		</div>
+	</div> -->

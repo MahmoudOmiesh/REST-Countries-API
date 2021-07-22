@@ -1,0 +1,20 @@
+body {
+	--container-padding: 7em;
+	font-family: var(--ff-main);
+	color: var(--clr-neutral-100);
+	background-color: var(--clr-primary-200);
+	text-rendering: optimizeSpeed;
+	line-height: 1.6;
+
+	@include mq(medium) {
+		--container-padding: 3em;
+	}
+	@include mq(small) {
+		--container-padding: 1.75em;
+	}
+}
+
+.light {
+	stroke: #000;
+	fill: none;
+}

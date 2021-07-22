@@ -1,0 +1,41 @@
+$colors-dark: (
+	"primary": (
+		"100": hsl(209, 23%, 22%),
+		// dark mode elements
+		"200": hsl(207, 26%, 17%),
+		//dark mode bg
+	),
+	"neutral": (
+		"100": hsl(0, 0%, 100%),
+		// dark mode text
+	),
+);
+$colors-light: (
+	"primary": (
+		"100": hsl(0, 0%, 100%),
+		//light mode elements
+		"200": hsl(0, 0%, 98%),
+		//light mode bg
+	),
+	"neutral": (
+		"100": hsl(200, 15%, 8%),
+		// light mode text
+		"200": hsl(0, 0%, 52%),
+		//light mode input
+	),
+);
+
+$font-weights: (
+	"normal": 300,
+	"medium": 600,
+	"bold": 800,
+);
+
+$font-families: (
+	"main": Nunito Sans,
+);
+
+$breakpoints: (
+	"small": 45em,
+	"medium": 60em,
+);

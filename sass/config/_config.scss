@@ -1,0 +1,25 @@
+:root {
+	@each $value, $weight in $font-weights {
+		--fw-#{$value}: #{$weight};
+	}
+	@each $type, $family in $font-families {
+		--ff-#{$type}: "#{$family}", sans-serif;
+	}
+
+	--box-shadow: 0 0 1em 0 #0003;
+}
+
+:root[data-theme="dark"] {
+	@each $type, $shades in $colors-dark {
+		@each $intensity, $color in $shades {
+			--clr-#{$type}-#{$intensity}: #{$color};
+		}
+	}
+}
+:root[data-theme="light"] {
+	@each $type, $shades in $colors-light {
+		@each $intensity, $color in $shades {
+			--clr-#{$type}-#{$intensity}: #{$color};
+		}
+	}
+}

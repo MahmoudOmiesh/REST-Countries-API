@@ -1,0 +1,41 @@
+.countries {
+	display: grid;
+	padding: 0 var(--container-padding);
+	grid-template-columns: repeat(auto-fit, minmax(275px, 0.25fr));
+	gap: 2em;
+	padding-bottom: 2em;
+	justify-content: center;
+}
+
+.country {
+	background-color: var(--clr-primary-100);
+	border-radius: 0.35em;
+	box-shadow: var(--box-shadow);
+
+	&__flag {
+		width: 100%;
+		height: 55%;
+		object-fit: cover;
+		cursor: pointer;
+	}
+
+	&__facts {
+		padding: 2em 1.5em;
+	}
+
+	&__name {
+		margin-bottom: 0.6em;
+		cursor: pointer;
+	}
+
+	&__fact {
+		font-size: 0.9rem;
+		span {
+			font-weight: var(--fw-medium);
+		}
+
+		& + & {
+			margin-top: 0.5em;
+		}
+	}
+}
